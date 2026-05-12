@@ -25,7 +25,8 @@ user pool =  user for i in range ( 1, 31)  -> 30 fake users
 
 
 Core;
-```for i in range(1, 31):
+```
+for i in range(1, 31):
     user_id       = random.choice(USER_POOL)
     src, med      = random.choice(SOURCES)
     event         = random.choice(FUNNEL)
@@ -39,5 +40,19 @@ Core;
         "event_name": event,
         "source":     src,
         "medium":     med,
-        "revenue":    revenue, }```
+        "revenue":    revenue, } 
+
+```
+
+
+
+Streaming doesnt work on free trials - an other alternative would be the load jobs ( we can mimic the streaming process.  so i will have both the codes linked. But im using the load jobs to complete this section of the task
+
+load jobs->
+changes would be : 
+Added imports — json, os, tempfile 
+Added job_config — defines the schema and tells BQ to append rows
+Replaced the insert_rows_json block with the temp file → load job → delete temp file pattern
+event_ts format changed from .isoformat() to strftime("%Y-%m-%d %H:%M:%S") — BQ load jobs are stricter about timestamp format
+
     
