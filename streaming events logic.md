@@ -55,4 +55,9 @@ Added job_config — defines the schema and tells BQ to append rows
 Replaced the insert_rows_json block with the temp file → load job → delete temp file pattern
 event_ts format changed from .isoformat() to strftime("%Y-%m-%d %H:%M:%S") — BQ load jobs are stricter about timestamp format
 
+
+
+output screenshot
+<img width="1340" height="487" alt="image" src="https://github.com/user-attachments/assets/1f867e22-4263-4b9a-9298-475730a41ac1" />
+
     
