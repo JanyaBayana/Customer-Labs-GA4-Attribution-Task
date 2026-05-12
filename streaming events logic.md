@@ -25,7 +25,7 @@ user pool =  user for i in range ( 1, 31)  -> 30 fake users
 
 
 Core;
-for i in range(1, 31):
+```for i in range(1, 31):
     user_id       = random.choice(USER_POOL)
     src, med      = random.choice(SOURCES)
     event         = random.choice(FUNNEL)
@@ -39,5 +39,5 @@ for i in range(1, 31):
         "event_name": event,
         "source":     src,
         "medium":     med,
-        "revenue":    revenue, }
+        "revenue":    revenue, }```
     
