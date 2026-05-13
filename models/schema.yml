@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: stg_ga4__events
+    description: "cleaned hit-level ga4 events. one row per event."
+    columns:
+      - name: user_pseudo_id
+        tests:
+          - not_null
+      - name: session_id
+        tests:
+          - not_null
+      - name: event_ts
+        tests:
+          - not_null
+      - name: event_name
+        tests:
+          - not_null
+
+  - name: stg_ga4__sessions
+    description: "session grain. one row per user+session."
+    columns:
+      - name: user_pseudo_id
+        tests:
+          - not_null
+      - name: session_id
+        tests:
+          - not_null
+      - name: is_conversion
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false
+
+  - name: int_user_touchpoints
+    description: "all touchpoints within 30-day window before each conversion."
+    columns:
+      - name: user_pseudo_id
+        tests:
+          - not_null
+      - name: conversion_session_id
+        tests:
+          - not_null
+      - name: touch_rank_asc
+        tests:
+          - not_null
+      - name: touch_rank_desc
+        tests:
+          - not_null
+
+  - name: mart_attribution_first_click
+    description: "first-click attribution. credits channel that introduced the user."
+    columns:
+      - name: conversion_date
+        tests:
+          - not_null
+      - name: source
+        tests:
+          - not_null
+      - name: conversions
+        tests:
+          - not_null
+
+  - name: mart_attribution_last_click
+    description: "last-click attribution. credits channel that closed the sale."
+    columns:
+      - name: conversion_date
+        tests:
+          - not_null
+      - name: source
+        tests:
+          - not_null
+      - name: conversions
+        tests:
+          - not_null
+
+  - name: mart_attribution_comparison
+    description: "first vs last click side by side. positive delta means channel better at introducing."
+    columns:
+      - name: source
+        tests:
+          - not_null
+      - name: first_click_conversions
+        tests:
+          - not_null

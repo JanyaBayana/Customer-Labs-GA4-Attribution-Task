@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: ga4
+    project: bigquery-public-data
+    dataset: ga4_obfuscated_sample_ecommerce
+    tables:
+      - name: events
+        identifier: events_*
+        
