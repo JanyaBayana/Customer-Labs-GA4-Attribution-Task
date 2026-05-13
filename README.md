@@ -58,7 +58,3 @@ Main cost risk is accidentally running a query without `_TABLE_SUFFIX` on a larg
 ---
 
 ## Key findings from the data in my data discovery sequel
-
-
-Built for CustomerLabs Data Engineer take-home task.  
-Questions about the pipeline or live walkthrough — reply to jobs@customerlabs.co
